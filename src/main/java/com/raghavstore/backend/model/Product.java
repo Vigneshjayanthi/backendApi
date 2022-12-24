@@ -42,6 +42,12 @@ public class Product {
 
     }
 
+    public Product(Product product){
+        new Product(product.getProductReferenceId(),product.getSku(),product.getTitle(),product.getMrp(),product.getBrand(),product.getMaterial(),
+        product.getImage_url1(),product.getImage_url2(),product.getImage_url3(),product.getImage_url4(),product.getImage_url5(),product.getColour(),
+                product.getDescription());
+    }
+
     public Long getProductReferenceId() {
         return productReferenceId;
     }
@@ -144,5 +150,24 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productReferenceId=" + productReferenceId +
+                ", sku='" + sku + '\'' +
+                ", title='" + title + '\'' +
+                ", mrp=" + mrp +
+                ", brand='" + brand + '\'' +
+                ", material='" + material + '\'' +
+                ", image_url1='" + image_url1 + '\'' +
+                ", image_url2='" + image_url2 + '\'' +
+                ", image_url3='" + image_url3 + '\'' +
+                ", image_url4='" + image_url4 + '\'' +
+                ", image_url5='" + image_url5 + '\'' +
+                ", colour='" + colour + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

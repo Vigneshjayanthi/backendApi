@@ -2,7 +2,6 @@ package com.raghavstore.backend.controller;
 
 import com.raghavstore.backend.model.Product;
 import com.raghavstore.backend.service.ProductService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,5 +72,18 @@ public class ProductController {
            logger.error(e.getMessage());
            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
        }
+    }
+
+    @PutMapping("product/updateProduct")
+    public ResponseEntity patchUpdatingProduct(@RequestBody Product product){
+        logger.info("The put  Product Method is called");
+        try{
+            Product updateProduct =  productService.updateProduct(product);
+            return new ResponseEntity(updateProduct, HttpStatus.ACCEPTED);
+        }
+        catch (Exception e){
+            logger.error(e.getMessage());
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
     }
 }
